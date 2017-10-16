@@ -2,7 +2,7 @@
  * Stephen Cook, Bath. */
 
 /* Given the matrix
- *   M = [[1,1],[1,0]], 
+ *   M = [[1,1],[1,0]],
  * the n-th and (n+1)-th fibonacci numbers are given by
  *   [F(n+1),F(n)]' = (M^n)*[1,0]'.
  * We want to do this by taking the binary representation of n and moving
@@ -11,14 +11,14 @@
  *   bin(13) = 1101,
  *   M^13 = 1*M^1 * 0*M^2 * 1*M^4 * 1*M^8,
  * each M^(2^i) we can find iteratively with one symmetric matrix
- * multiplication, 
+ * multiplication,
  * M^(2n) = (M^n)^2.
  *
  *  Since all matrices are Symmetric 2-by-2, they shall be stored as
  *  Marray = {M(1,1), M(1,2)(=M(2,1)), M(2,2)};
  *
  *  Not quite good enough to do inline assignments to arrays so the code is
- *  longer than I hoped for. It shold be a lot fewer lines. 
+ *  longer than I hoped for. It shold be a lot fewer lines.
  *  Probably slower than a raw iteration, such as
  *   for (i=1;i<n;i++) {fn1 = fn+fn_old, fn_old=fn, fn=fn1;}
  *  but for large n this should scale like log(n) instead of n.
@@ -38,7 +38,7 @@ long fib(int n){
 		A[0] = M[0];		// Then A starts off as M.
 		A[1] = M[1];
 		A[2] = M[2];
-	} 
+	}
 	else {				// So n is even
 		A[0] = 1L;		// So start A as the identity matrix
 		A[1] = 0L;
@@ -56,7 +56,7 @@ long fib(int n){
 		// This is supposed to be M = mmult(M,M), but can't figure out
 		// how to return arrays from functions.
 		M2[0] = M[0]*M[0] + M[1]*M[1];
-		M2[1] = M[0]*M[1] + M[1]*M[2]; 
+		M2[1] = M[0]*M[1] + M[1]*M[2];
 		M2[2] = M[1]*M[1] + M[2]*M[2];
 		M[0] = M2[0];
 		M[1] = M2[1];
@@ -73,7 +73,7 @@ long fib(int n){
 
 		n>>=1; 	// Move onto the next digit
 	}
-	return A[1]; // A[1]=F(n). Also have A[0]=F(n+1), but seems less neat.
+        return A[1]; // A[1]=F(n). Also have A[0]=F(n+1), but seems less neat.
 }
 
 int main(void){
