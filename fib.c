@@ -1,4 +1,4 @@
-/* Program for calculating the n-th fibonacci number with matrices 
+/* Program for calculating the n-th fibonacci number with matrices
  * Stephen Cook, Bath. */
 
 /* Given the matrixxx
