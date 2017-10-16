@@ -1,7 +1,7 @@
 /* Program for calculating the n-th fibonacci number with matrices 
  * Stephen Cook, Bath. */
 
-/* Given the matrix
+/* Given the matrixxx
  *   M = [[1,1],[1,0]],
  * the n-th and (n+1)-th fibonacci numbers are given by
  *   [F(n+1),F(n)]' = (M^n)*[1,0]'.
